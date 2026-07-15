@@ -1,0 +1,27 @@
+subscription_id     = "your-subscription-id"
+resource_group_name = "rg-entra-windows-vm"
+location            = "eastus"
+vm_name             = "win-entra-vm"
+vm_size             = "Standard_D2s_v3"
+admin_username      = "localadmin"
+admin_password      = "YourSecurePassword123!"
+windows_sku         = "2022-datacenter-g2"
+
+# Restrict RDP access to your IP for security
+allowed_rdp_source = "YOUR_PUBLIC_IP/32"
+
+# Entra ID user/group object IDs for VM access
+# Get object IDs from Azure Portal > Entra ID > Users/Groups
+vm_admin_users = [
+  # "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+]
+
+vm_user_login_users = [
+  # "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+]
+
+tags = {
+  Environment = "Development"
+  ManagedBy   = "Terraform"
+  Purpose     = "Entra-ID-Windows-VM"
+}
